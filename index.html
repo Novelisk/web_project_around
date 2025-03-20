@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the U.S.</title>
+    <meta name="description" content="Proyecto Sprint 7 Around the U.S." />
+    <meta name="author" content="Marco Ramírez" />
+    <meta
+      name="keywords"
+      content="TripleTen, Tripleten, Around the U.S., sprint7, Sprint 7"
+    />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          src="./images/header_image.svg"
+          alt="Image of a text that spells: Around the U.S."
+          class="header__image"
+        />
+        <div class="header__line"></div>
+      </header>
+
+      <main class="content">
+        <section class="profile">
+          <img
+            src="./images/profile_avatar.png"
+            alt="Image of and avatar of the explorer Jacques Cousteau."
+            class="profile__avatar"
+          />
+          <div class="profile__info">
+            <h2 class="profile__name">Jacques Cousteau</h2>
+            <button type="button" class="profile__edit-btn"></button>
+            <p class="profile__about">Explorador</p>
+          </div>
+          <button class="profile__add-btn" type="button"></button>
+        </section>
+
+        <section class="elements">
+          <div class="element" id="yosemite">
+            <img
+              src="/images/yosemite.png"
+              alt="Photo of the Valley of Yosemite"
+              class="element__image"
+            />
+            <h3 class="element__text">Valle de Yosemite</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+          <div class="element" id="louise">
+            <img
+              src="/images/louise.png"
+              alt="Photo of the Lake Louise"
+              class="element__image"
+            />
+            <h3 class="element__text">Lago Louise</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+          <div class="element" id="calvas">
+            <img
+              src="/images/calvas.png"
+              alt="Photo of Calvas Mountain"
+              class="element__image"
+            />
+            <h3 class="element__text">Montañas Calvas</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+          <div class="element" id="latemar">
+            <img
+              src="/images/latemar.png"
+              alt="Photo of Latemar Mountain at night"
+              class="element__image"
+            />
+            <h3 class="element__text">Latemar</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+          <div class="element" id="vanois">
+            <img
+              src="/images/vanois.png"
+              alt="Photo of the lake of Vanois National Park"
+              class="element__image"
+            />
+            <h3 class="element__text">Vanois National ...</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+          <div class="element" id="dibraies">
+            <img
+              src="/images/di Braies.png"
+              alt="Photo of Lake di Braies"
+              class="element__image"
+            />
+            <h3 class="element__text">Lago di Braies</h3>
+            <button class="element__like-btn" type="button"></button>
+          </div>
+        </section>
+      </main>
+
+      <div class="popup popup__visible">
+        <h3 class="popup__title">Editar perfil</h3>
+        <form class="popup__container">
+          <input
+            type="text"
+            name="name"
+            class="popup__input popup__input_type_name"
+            placeholder="Nombre"
+            id="popupName"
+          />
+          <div class="popup__underline"></div>
+          <input
+            type="text"
+            name="about"
+            class="popup__input popup__input_type_about"
+            placeholder="Acerca de mi"
+            id="popupAbout"
+          />
+          <div class="popup__underline popup__underline_last"></div>
+          <button
+            type="submit"
+            class="popup__submit-btn popup__submit-btn_black"
+          >
+            Guardar
+          </button>
+          <button class="popup__close-tab"></button>
+        </form>
+      </div>
+      <footer class="footer">&copy; 2025. Marco Ramírez</footer>
+    </div>
+  </body>
+  <script src="./scripts/script.js"></script>
+</html>
