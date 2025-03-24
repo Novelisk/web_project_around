@@ -12,7 +12,7 @@ const popupAbout = document.querySelector("#popupAbout");
 const likeButton = document.querySelectorAll(".element__like-btn");
 
 editButton.addEventListener("click", () => {
-  popup.classList.remove("popup__visible");
+  popup.classList.remove("popup_visible");
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
 });
@@ -21,7 +21,7 @@ popupButton.addEventListener("click", (e) => {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
-  popup.classList.add("popup__visible");
+  popup.classList.add("popup_visible");
 });
 
 function submitButtonBlack() {
@@ -37,7 +37,7 @@ inputAbout.addEventListener("input", submitButtonBlack);
 
 closeButton.addEventListener("click", (e) => {
   e.preventDefault();
-  popup.classList.toggle("popup__visible");
+  popup.classList.toggle("popup_visible");
 });
 
 likeButton.forEach((button) => {
