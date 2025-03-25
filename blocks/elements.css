@@ -15,9 +15,6 @@
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .element__image {
@@ -30,11 +27,14 @@
   height: 23px;
   margin: 0;
   padding: 25px 15px 31px 21px;
-  font-family: "Inter-Regular", Arial, Helvetica, sans-serif;
+  font-family: "Inter-Black", Arial, Helvetica, sans-serif;
   font-weight: 900;
-  font-size: 21px;
+  font-size: 22px;
   line-height: 100%;
   color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .element__like-btn {
