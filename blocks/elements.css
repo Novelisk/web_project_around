@@ -1,6 +1,6 @@
 .elements {
   max-width: 880px;
-  max-height: 743px;
+  /* max-height: 743px; */
   margin: 50px 200px 0;
   display: flex;
   flex-direction: row;
@@ -69,6 +69,24 @@
   right: 18px;
   bottom: 30px;
   cursor: pointer;
+}
+
+.element__trash-btn {
+  background-image: url(/images/Trash_btn.png);
+  background-size: cover;
+  background-position: center;
+  border: none;
+  width: 18px;
+  height: 19px;
+  margin: 0;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.element__like-btn:hover {
+  opacity: 60%;
 }
 
 @media screen and (min-width: 320px) and (max-width: 544px) {

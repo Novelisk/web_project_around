@@ -40,16 +40,16 @@
         </section>
 
         <section class="elements">
-          <div class="element" id="yosemite">
-            <img
-              src="/images/yosemite.png"
-              alt="Photo of the Valley of Yosemite"
-              class="element__image"
-            />
-            <h3 class="element__text">Valle de Yosemite</h3>
-            <button class="element__like-btn" type="button"></button>
-          </div>
-          <div class="element" id="louise">
+          <template class="element__template">
+            <div class="element" id="yosemite">
+              <button class="element__trash-btn" type="button"></button>
+              <img src="" alt="" class="element__image" />
+              <h3 class="element__text"></h3>
+              <button class="element__like-btn" type="button"></button>
+            </div>
+          </template>
+
+          <!-- <div class="element" id="louise">
             <img
               src="/images/louise.png"
               alt="Photo of the Lake Louise"
@@ -93,7 +93,7 @@
             />
             <h3 class="element__text">Lago di Braies</h3>
             <button class="element__like-btn" type="button"></button>
-          </div>
+          </div> -->
         </section>
       </main>
 
@@ -125,6 +125,43 @@
           </button>
         </form>
       </div>
+
+      <div class="popup popup_visible" id="addPopup">
+        <button class="popup__close-tab" id="addCloseTab"></button>
+        <h3 class="popup__title" id="addTitle">Nuevo Lugar</h3>
+        <form class="popup__container">
+          <input
+            type="text"
+            name="name"
+            class="popup__input popup__input_type_name"
+            placeholder="Título"
+            id="addName"
+          />
+          <div class="popup__underline"></div>
+          <input
+            type="text"
+            name="about"
+            class="popup__input popup__input_type_about"
+            placeholder="Enlace de la imagen"
+            id="addLink"
+          />
+          <div class="popup__underline popup__underline_last"></div>
+          <button
+            type="button"
+            class="popup__submit-btn popup__submit-btn_black"
+            id="addCreateBtn"
+          >
+            Crear
+          </button>
+        </form>
+      </div>
+
+      <div class="popup__image popup_visible">
+        <button class="popup__close-tab" id="popupImageCloseTab"></button>
+        <img src="./images/di_Braies.png" alt="" class="popup__image-img" />
+        <p class="popup__image-title">Lago Di Braies</p>
+      </div>
+
       <footer class="footer">&copy; 2025. Marco Ramírez</footer>
     </div>
     <script src="./scripts/index.js"></script>
