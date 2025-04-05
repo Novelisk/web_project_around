@@ -16,10 +16,13 @@ const addName = document.querySelector("#addName");
 const addLink = document.querySelector("#addLink");
 const addCloseTab = document.querySelector("#addCloseTab");
 const addCreateBtn = document.querySelector("#addCreateBtn");
-const templateElementPanel = document.querySelector(".element__template");
+const templateElementPanel = document.querySelector("#element__template");
 const popupImageCloseTab = document.querySelector("#popupImageCloseTab");
 const popupImage = document.querySelector(".popup__image");
-const popupImageImg = document.querySelector(".popup__image-img");
+const popupImageContainer = document.querySelector(
+  ".popup__image.popup__image-img"
+);
+const clickOnImage = document.querySelector(".element__image");
 const trashButton = document.querySelectorAll(".element__trash-btn");
 const cardContainer = document.querySelector(".elements");
 const initialCards = [
@@ -82,24 +85,19 @@ closeButton.addEventListener("click", (e) => {
   popup.classList.toggle("popup_visible");
 });
 
-popupImageCloseTab.addEventListener("click", (e) => {
-  e.preventDefault();
-  popupImage.classList.toggle("popup_visible");
-});
-
 addCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
   addPopup.classList.toggle("popup_visible");
 });
 
-likeButton.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-    button.classList.toggle("element__like-btn_black");
-  });
-});
+// clickOnImage.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   popupImageContainer.src = e.target.src;
+//   popupImageContainer.alt = e.target.alt;
+//   popupImage.classList.toggle("popup_visible");
+// });
 
-popupImageImg.addEventListener("click", (e) => {
+popupImageCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
   popupImage.classList.toggle("popup_visible");
 });
@@ -111,10 +109,22 @@ function createCard(name, link) {
 
   const cardImage = cardElement.querySelector(".element__image");
   const cardTitle = cardElement.querySelector(".element__text");
+  const trashButton = cardElement.querySelector(".element__trash-btn");
+  const likeButton = cardElement.querySelector(".element__like-btn");
 
   cardImage.src = link;
   cardTitle.textContent = name;
   cardImage.alt = name;
+
+  trashButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    cardElement.remove();
+  });
+
+  likeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    likeButton.classList.toggle("element__like-btn_black");
+  });
 
   return cardElement;
 }
@@ -126,48 +136,17 @@ function addCard(cardElement) {
 
 addCreateBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  addName.textContent = addName.value;
-  addLink.textContent = addLink.value;
+  const title = addName.value;
+  const link = addLink.value;
   addName.value = "";
   addLink.value = "";
   addPopup.classList.toggle("popup_visible");
 
-  const newCard = createCard(addName.textContent, addLink.textContent);
+  const newCard = createCard(title, link);
   addCard(newCard);
 });
 
-trashButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  trashButton.closest(".element").remove();
+initialCards.forEach((card) => {
+  const cardElement = createCard(card.name, card.link);
+  addCard(cardElement);
 });
-
-initialCards.map((card) => {
-  const cardElement = document.createElement("div");
-  cardElement.classList.add("element");
-
-  const cardBtnTrash = document.createElement("button");
-  cardBtnTrash.classList.add("element__trash-btn");
-  cardBtnTrash.type = "button";
-
-  const cardImage = document.createElement("img");
-  cardImage.classList.add("element__image");
-  cardImage.src = card.link;
-  cardImage.alt = card.name;
-
-  const cardTitle = document.createElement("h3");
-  cardTitle.classList.add("element__text");
-  cardTitle.textContent = card.name;
-
-  const cardLikeBtn = document.createElement("button");
-  cardLikeBtn.classList.add("element__like-btn");
-  cardLikeBtn.type = "button";
-
-  cardElement.appendChild(cardBtnTrash);
-  cardElement.appendChild(cardImage);
-  cardElement.appendChild(cardTitle);
-  cardElement.appendChild(cardLikeBtn);
-  cardContainer.appendChild(cardElement);
-});
-
-console.log(initialCards);
-console.log(cardContainer);
