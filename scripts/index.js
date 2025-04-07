@@ -19,10 +19,8 @@ const addCreateBtn = document.querySelector("#addCreateBtn");
 const templateElementPanel = document.querySelector("#element__template");
 const popupImageCloseTab = document.querySelector("#popupImageCloseTab");
 const popupImage = document.querySelector(".popup__image");
-const popupImageContainer = document.querySelector(
-  ".popup__image.popup__image-img"
-);
-const clickOnImage = document.querySelector(".element__image");
+const popupImageImg = document.querySelector(".popup__image-img");
+const clickOnImage = document.querySelectorAll(".element__image");
 const trashButton = document.querySelectorAll(".element__trash-btn");
 const cardContainer = document.querySelector(".elements");
 const initialCards = [
@@ -52,16 +50,19 @@ const initialCards = [
   },
 ];
 
+// Edit profile button
 editButton.addEventListener("click", () => {
   popup.classList.remove("popup_visible");
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
 });
 
+// Add card button
 addButton.addEventListener("click", () => {
   addPopup.classList.remove("popup_visible");
 });
 
+// Submit profile info
 popupButton.addEventListener("click", (e) => {
   e.preventDefault();
   profileName.textContent = inputName.value;
@@ -69,39 +70,25 @@ popupButton.addEventListener("click", (e) => {
   popup.classList.add("popup_visible");
 });
 
-function submitButtonBlack() {
-  if (inputName.value === "" && inputAbout.value === "") {
-    submitButton.classList.remove("popup__submit-btn_black");
-  } else {
-    submitButton.classList.add("popup__submit-btn_black");
-  }
-}
-
-inputName.addEventListener("input", submitButtonBlack);
-inputAbout.addEventListener("input", submitButtonBlack);
-
+// Close profile popup
 closeButton.addEventListener("click", (e) => {
   e.preventDefault();
   popup.classList.toggle("popup_visible");
 });
 
+// Close add card popup
 addCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
   addPopup.classList.toggle("popup_visible");
 });
 
-// clickOnImage.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   popupImageContainer.src = e.target.src;
-//   popupImageContainer.alt = e.target.alt;
-//   popupImage.classList.toggle("popup_visible");
-// });
-
+// Close image popup
 popupImageCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
-  popupImage.classList.toggle("popup_visible");
+  popupImage.classList.add("popup_visible");
 });
 
+// Create card function
 function createCard(name, link) {
   const cardElement = templateElementPanel.content
     .querySelector(".element")
@@ -116,6 +103,16 @@ function createCard(name, link) {
   cardTitle.textContent = name;
   cardImage.alt = name;
 
+  // Image click-on to show up
+  cardImage.addEventListener("click", (e) => {
+    const popupImageTitle = popupImage.querySelector(".popup__image-title");
+    e.preventDefault();
+    popupImageImg.src = cardImage.src;
+    popupImageImg.alt = cardImage.alt;
+    popupImageTitle.textContent = cardTitle.textContent;
+    popupImage.classList.remove("popup_visible");
+  });
+
   trashButton.addEventListener("click", (e) => {
     e.preventDefault();
     cardElement.remove();
@@ -129,11 +126,13 @@ function createCard(name, link) {
   return cardElement;
 }
 
+// Add card function
 function addCard(cardElement) {
   const cardContainer = document.querySelector(".elements");
   cardContainer.prepend(cardElement);
 }
 
+// Add new card
 addCreateBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const title = addName.value;
@@ -146,6 +145,7 @@ addCreateBtn.addEventListener("click", (e) => {
   addCard(newCard);
 });
 
+// Load initial cards
 initialCards.forEach((card) => {
   const cardElement = createCard(card.name, card.link);
   addCard(cardElement);

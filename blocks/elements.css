@@ -41,7 +41,7 @@
   background-image: url(/images/like-btn.svg);
   background-size: cover;
   background-position: center;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   width: 21px;
   height: 19px;
@@ -72,9 +72,10 @@
 }
 
 .element__trash-btn {
-  background-image: url(/images/Trash_btn.png);
+  background-image: url(/images/Trash_icon_svg.svg);
   background-size: cover;
   background-position: center;
+  background-color: transparent;
   border: none;
   width: 18px;
   height: 19px;
