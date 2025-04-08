@@ -19,3 +19,13 @@
     font-size: 14px;
   }
 }
+
+@media screen and (min-width: 545px) and (max-width: 768px) {
+  .footer {
+    max-width: 768px;
+    height: 14px;
+    padding: 50px 19px 36px;
+    margin: 0;
+    font-size: 14px;
+  }
+}

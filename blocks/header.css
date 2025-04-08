@@ -32,3 +32,39 @@
     max-width: 320px;
   }
 }
+
+@media screen and (min-width: 545px) and (max-width: 768px) {
+  .header {
+    max-width: 768px;
+    margin: 0;
+  }
+
+  .header__image {
+    max-width: 173px;
+    height: 33px;
+    margin: 45px 0 45px 41px;
+  }
+
+  .header__line {
+    max-width: 600px;
+    margin-left: 45px;
+  }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1278px) {
+  .header {
+    max-width: 1278px;
+    margin: 0;
+  }
+
+  .header__image {
+    max-width: 173px;
+    height: 33px;
+    margin: 45px 0 45px 41px;
+  }
+
+  .header__line {
+    max-width: 1000px;
+    margin-left: 45px;
+  }
+}

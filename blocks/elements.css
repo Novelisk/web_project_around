@@ -1,6 +1,5 @@
 .elements {
   max-width: 880px;
-  /* max-height: 743px; */
   margin: 50px 200px 0;
   display: flex;
   flex-direction: row;
@@ -20,6 +19,7 @@
 .element__image {
   width: 282px;
   height: 282px;
+  border-radius: 10px 10px 0 0;
 }
 
 .element__text {
@@ -96,6 +96,36 @@
     max-height: fit-content;
     margin: 36px 19px 0;
     gap: 20px;
+  }
+
+  .element {
+    width: 282px;
+    height: 361px;
+  }
+}
+
+@media screen and (min-width: 545px) and (max-width: 768px) {
+  .elements {
+    max-width: 768px;
+    max-height: fit-content;
+    margin: 20px auto;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .element {
+    width: 282px;
+    height: 361px;
+  }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1279px) {
+  .elements {
+    max-width: 1024px;
+    max-height: fit-content;
+    margin: 50px auto;
+    gap: 20px;
+    justify-content: center;
   }
 
   .element {
