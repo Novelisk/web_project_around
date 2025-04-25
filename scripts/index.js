@@ -9,6 +9,8 @@ const closeButton = document.querySelector(".popup__close-tab");
 const submitButton = document.querySelector(".popup__submit-btn");
 const popupName = document.querySelector("#popupName");
 const popupAbout = document.querySelector("#popupAbout");
+const popupUnderline = document.querySelector(".popup__underline");
+const errorLocation = document.querySelector("#popupName", "#popupAbout");
 const likeButton = document.querySelectorAll(".element__like-btn");
 const addButton = document.querySelector(".profile__add-btn");
 const addPopup = document.querySelector("#addPopup");
@@ -69,6 +71,46 @@ popupButton.addEventListener("click", (e) => {
   profileAbout.textContent = inputAbout.value;
   popup.classList.add("popup_visible");
 });
+
+// Show invalid/error mesagge
+/*const showErrorMessage = (errorMessage, errorMessageLocation) => {
+  errorMessageLocation.classList.add("popup__underline_invalid");
+  errorMessageLocation.textContent = errorMessage;
+};
+
+const removeErrorMessage = (errorMessageLocation) => {
+  errorMessageLocation.classList.remove("popup__underline_invalid");
+  errorMessageLocation.textContent = "";
+};
+
+const checkInputValidity = (
+  inputElementLocation,
+  errorMessage,
+  errorMessageLocation
+) => {
+  if (!inputElementLocation.validity.valid) {
+    showErrorMessage(errorMessage, errorMessageLocation);
+  } else {
+    removeErrorMessage(errorMessageLocation);
+  }
+}; */
+
+/*const handleErrorMessage = (
+  inputElementLocation,
+  errorMessage,
+  errorMessageLocation
+) => {
+  if (!inputElementLocation.validity.valid) {
+    errorMessageLocation.classList.add("popup__underline_invalid");
+    errorMessageLocation.textContent = errorMessage;
+  } else {
+    errorMessageLocation.classList.remove("popup__underline_invalid");
+    errorMessageLocation.textContent = "";
+  }
+};*/
+
+// handleErrorMessage(popupName, popupName.validationMessage, popupUnderline);
+// handleErrorMessage(popupAbout, popupAbout.validationMessage, popupUnderline);
 
 // Close profile popup
 closeButton.addEventListener("click", (e) => {
@@ -150,3 +192,8 @@ initialCards.forEach((card) => {
   const cardElement = createCard(card.name, card.link);
   addCard(cardElement);
 });
+
+// Reset validation
+import { resetValidation } from "./validate.js";
+
+resetValidation();
