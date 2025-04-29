@@ -67,7 +67,7 @@
               maxlength="40"
             />
             <div class="popup__underline"></div>
-            <span class="popup__error"></span>
+            <span class="popup__error" id="popupName-error"></span>
           </label>
           <label class="popup__field">
             <input
@@ -81,11 +81,11 @@
               maxlength="200"
             />
             <div class="popup__underline popup__underline_last"></div>
-            <span class="popup__error"></span>
+            <span class="popup__error" id="popupAbout-error"></span>
           </label>
           <button
             type="submit"
-            class="popup__submit-btn popup__submit-btn_black"
+            class="popup__submit-btn popup__submit-btn_invalid"
           >
             Guardar
           </button>
@@ -105,24 +105,27 @@
               id="addName"
               minlength="2"
               maxlength="30"
+              required
             />
             <div class="popup__underline"></div>
-            <span class="popup__error"></span>
+            <span class="popup__error" id="addName-error"></span>
           </label>
           <label class="popup__field">
             <input
               type="url"
+              pattern="https://.+"
               name="about"
               class="popup__input popup__input_type_about"
               placeholder="Enlace de la imagen"
               id="addLink"
+              required
             />
             <div class="popup__underline popup__underline_last"></div>
-            <span class="popup__error"></span>
+            <span class="popup__error" id="addLink-error"></span>
           </label>
           <button
             type="button"
-            class="popup__submit-btn popup__submit-btn_black"
+            class="popup__submit-btn popup__submit-btn_invalid"
             id="addCreateBtn"
           >
             Crear

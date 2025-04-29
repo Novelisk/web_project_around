@@ -6,12 +6,8 @@ const inputAbout = document.querySelector(".popup__input_type_about");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const closeButton = document.querySelector(".popup__close-tab");
-const submitButton = document.querySelector(".popup__submit-btn");
 const popupName = document.querySelector("#popupName");
 const popupAbout = document.querySelector("#popupAbout");
-const popupUnderline = document.querySelector(".popup__underline");
-const errorLocation = document.querySelector("#popupName", "#popupAbout");
-const likeButton = document.querySelectorAll(".element__like-btn");
 const addButton = document.querySelector(".profile__add-btn");
 const addPopup = document.querySelector("#addPopup");
 const addName = document.querySelector("#addName");
@@ -22,9 +18,6 @@ const templateElementPanel = document.querySelector("#element__template");
 const popupImageCloseTab = document.querySelector("#popupImageCloseTab");
 const popupImage = document.querySelector(".popup__image");
 const popupImageImg = document.querySelector(".popup__image-img");
-const clickOnImage = document.querySelectorAll(".element__image");
-const trashButton = document.querySelectorAll(".element__trash-btn");
-const cardContainer = document.querySelector(".elements");
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -71,46 +64,6 @@ popupButton.addEventListener("click", (e) => {
   profileAbout.textContent = inputAbout.value;
   popup.classList.add("popup_visible");
 });
-
-// Show invalid/error mesagge
-/*const showErrorMessage = (errorMessage, errorMessageLocation) => {
-  errorMessageLocation.classList.add("popup__underline_invalid");
-  errorMessageLocation.textContent = errorMessage;
-};
-
-const removeErrorMessage = (errorMessageLocation) => {
-  errorMessageLocation.classList.remove("popup__underline_invalid");
-  errorMessageLocation.textContent = "";
-};
-
-const checkInputValidity = (
-  inputElementLocation,
-  errorMessage,
-  errorMessageLocation
-) => {
-  if (!inputElementLocation.validity.valid) {
-    showErrorMessage(errorMessage, errorMessageLocation);
-  } else {
-    removeErrorMessage(errorMessageLocation);
-  }
-}; */
-
-/*const handleErrorMessage = (
-  inputElementLocation,
-  errorMessage,
-  errorMessageLocation
-) => {
-  if (!inputElementLocation.validity.valid) {
-    errorMessageLocation.classList.add("popup__underline_invalid");
-    errorMessageLocation.textContent = errorMessage;
-  } else {
-    errorMessageLocation.classList.remove("popup__underline_invalid");
-    errorMessageLocation.textContent = "";
-  }
-};*/
-
-// handleErrorMessage(popupName, popupName.validationMessage, popupUnderline);
-// handleErrorMessage(popupAbout, popupAbout.validationMessage, popupUnderline);
 
 // Close profile popup
 closeButton.addEventListener("click", (e) => {
@@ -197,3 +150,33 @@ initialCards.forEach((card) => {
 import { resetValidation } from "./validate.js";
 
 resetValidation();
+
+// Close popups with escape key
+// document.addEventListener("keydown", (evt) => {
+//   if (!popup.contains("popup__visible")) {
+//     if (evt.key === "Escape") {
+//       popup.classList.add("popup__visible");
+//     }
+//   }
+// });
+
+// Close popups with click anywhere on page
+popup.addEventListener("click", (evt) => {
+  const page = document.querySelector(".page");
+  if (evt.target === page) {
+    popup.classList.toggle("popup__visible");
+  }
+});
+
+// Submit for with "enter" key
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll("popup__container");
+  forms.forEach((form) => {
+    form.addEventListener("keydown", (evt) => {
+      if (evt.key === "Enter" && resetValidation()) {
+        evt.preventDefault();
+        form.submit();
+      }
+    });
+  });
+});
