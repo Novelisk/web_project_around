@@ -148,23 +148,28 @@ initialCards.forEach((card) => {
 
 // Reset validation
 import { resetValidation } from "./validate.js";
-
 resetValidation();
 
 // Close popups with escape key
-// document.addEventListener("keydown", (evt) => {
-//   if (!popup.contains("popup__visible")) {
-//     if (evt.key === "Escape") {
-//       popup.classList.add("popup__visible");
-//     }
-//   }
-// });
+document.addEventListener("keydown", (evt) => {
+  const allPopups = document.querySelectorAll(".popup");
+  if (evt.key === "Escape") {
+    allPopups.forEach((popup) => {
+      if (!popup.classList.contains("popup_visible")) {
+        popup.classList.add("popup_visible");
+      }
+    });
+  }
+});
 
-// Close popups with click anywhere on page
-popup.addEventListener("click", (evt) => {
+// Close popups with click anywhere on window
+document.addEventListener("click", (evt) => {
   const page = document.querySelector(".page");
+  const allPopups = document.querySelectorAll(".popup");
   if (evt.target === page) {
-    popup.classList.toggle("popup__visible");
+    allPopups.forEach((popup) => {
+      popup.classList.add("popup_visible");
+    });
   }
 });
 
