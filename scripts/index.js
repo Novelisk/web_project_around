@@ -1,6 +1,7 @@
 const editButton = document.querySelector(".profile__edit-btn");
 const popupButton = document.querySelector(".popup__submit-btn");
 const popup = document.querySelector(".popup");
+const popupOverlay = document.querySelector(".popup__overlay");
 const inputName = document.querySelector(".popup__input_type_name");
 const inputAbout = document.querySelector(".popup__input_type_about");
 const profileName = document.querySelector(".profile__name");
@@ -48,6 +49,7 @@ const initialCards = [
 // Edit profile button
 editButton.addEventListener("click", () => {
   popup.classList.remove("popup_visible");
+  popupOverlay.classList.remove("popup_visible");
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
 });
@@ -55,6 +57,7 @@ editButton.addEventListener("click", () => {
 // Add card button
 addButton.addEventListener("click", () => {
   addPopup.classList.remove("popup_visible");
+  popupOverlay.classList.remove("popup_visible");
 });
 
 // Submit profile info
@@ -63,24 +66,28 @@ popupButton.addEventListener("click", (e) => {
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
   popup.classList.add("popup_visible");
+  popupOverlay.classList.remove("popup_visible");
 });
 
 // Close profile popup
 closeButton.addEventListener("click", (e) => {
   e.preventDefault();
   popup.classList.toggle("popup_visible");
+  popupOverlay.classList.toggle("popup_visible");
 });
 
 // Close add card popup
 addCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
   addPopup.classList.toggle("popup_visible");
+  popupOverlay.classList.toggle("popup_visible");
 });
 
 // Close image popup
 popupImageCloseTab.addEventListener("click", (e) => {
   e.preventDefault();
   popupImage.classList.add("popup_visible");
+  popupOverlay.classList.add("popup_visible");
 });
 
 // Create card function
@@ -106,6 +113,7 @@ function createCard(name, link) {
     popupImageImg.alt = cardImage.alt;
     popupImageTitle.textContent = cardTitle.textContent;
     popupImage.classList.remove("popup_visible");
+    popupOverlay.classList.remove("popup_visible");
   });
 
   trashButton.addEventListener("click", (e) => {
@@ -152,11 +160,15 @@ resetValidation();
 
 // Close popups with escape key
 document.addEventListener("keydown", (evt) => {
-  const allPopups = document.querySelectorAll(".popup");
+  const allPopups = document.querySelectorAll(".popup, .popup__image");
   if (evt.key === "Escape") {
     allPopups.forEach((popup) => {
-      if (!popup.classList.contains("popup_visible")) {
+      if (
+        !popup.classList.contains("popup_visible") &&
+        !popupOverlay.classList.contains("popup_visible")
+      ) {
         popup.classList.add("popup_visible");
+        popupOverlay.classList.add("popup_visible");
       }
     });
   }
@@ -164,11 +176,11 @@ document.addEventListener("keydown", (evt) => {
 
 // Close popups with click anywhere on window
 document.addEventListener("click", (evt) => {
-  const page = document.querySelector(".page");
-  const allPopups = document.querySelectorAll(".popup");
-  if (evt.target === page) {
+  const allPopups = document.querySelectorAll(".popup, .popup__image");
+  if (evt.target === popupOverlay) {
     allPopups.forEach((popup) => {
       popup.classList.add("popup_visible");
+      popupOverlay.classList.add("popup_visible");
     });
   }
 });
