@@ -39,17 +39,17 @@
           <button class="profile__add-btn" type="button"></button>
         </section>
 
-        <section class="elements">
-          <template id="element__template">
-            <div class="element">
-              <button class="element__trash-btn" type="button"></button>
-              <img src="" alt="" class="element__image" />
-              <h3 class="element__text"></h3>
-              <button class="element__like-btn" type="button"></button>
-            </div>
-          </template>
-        </section>
+        <section class="elements"></section>
       </main>
+
+      <template id="element__template">
+        <div class="element">
+          <button class="element__trash-btn" type="button"></button>
+          <img src="" alt="" class="element__image" />
+          <h3 class="element__text"></h3>
+          <button class="element__like-btn" type="button"></button>
+        </div>
+      </template>
 
       <div class="popup__overlay popup_visible"></div>
       <div class="popup popup_visible" id="profilePopup">
@@ -87,13 +87,13 @@
           <button
             type="submit"
             class="popup__submit-btn popup__submit-btn_invalid"
+            id="profileCreateBtn"
           >
             Guardar
           </button>
         </form>
       </div>
 
-      <div class="popup__overlay popup_visible"></div>
       <div class="popup popup_visible" id="addPopup">
         <button class="popup__close-tab" id="addCloseTab"></button>
         <h3 class="popup__title" id="addTitle">Nuevo Lugar</h3>
@@ -126,7 +126,7 @@
             <span class="popup__error" id="addLink-error"></span>
           </label>
           <button
-            type="button"
+            type="submit"
             class="popup__submit-btn popup__submit-btn_invalid"
             id="addCreateBtn"
           >
@@ -135,7 +135,6 @@
         </form>
       </div>
 
-      <div class="popup__overlay popup_visible" id="image_overlay"></div>
       <div class="popup__image popup_visible" id="popupImage">
         <button
           class="popup__close-tab popup__close-tab_image"
@@ -148,6 +147,8 @@
       <footer class="footer">&copy; 2025. Marco Ramírez</footer>
     </div>
     <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/card.js"></script>
+    <script type="module" src="./scripts/utils.js"></script>
   </body>
 </html>
