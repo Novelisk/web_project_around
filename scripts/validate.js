@@ -1,4 +1,4 @@
-const resetValidation = () => {
+/*const resetValidation = () => {
   const popupForms = document.querySelectorAll(".popup__container");
   popupForms.forEach((popupForm) => {
     const popupLabels = popupForm.querySelectorAll(".popup__field");
@@ -42,4 +42,4 @@ const resetValidation = () => {
   });
 };
 
-export { resetValidation };
+export { resetValidation };*/

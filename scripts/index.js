@@ -38,10 +38,10 @@ addNewCard();
 // Form validation
 import FormValidator from "./formValidator.js";
 
-const form1 = new FormValidator("#profilePopup");
-const form2 = new FormValidator("#addPopup");
-form1.enableValidation();
-form2.enableValidation();
+const editProfileForm = new FormValidator("#profilePopup");
+const addNewCardForm = new FormValidator("#addPopup");
+editProfileForm.enableValidation();
+addNewCardForm.enableValidation();
 
 // Import eventListeners
 import event_listeners from "./utils.js";
