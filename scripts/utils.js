@@ -1,6 +1,5 @@
 const editButton = document.querySelector(".profile__edit-btn");
 const popupButton = document.querySelector(".popup__submit-btn");
-const popup = document.querySelector(".popup");
 const popupOverlay = document.querySelector(".popup__overlay");
 const inputName = document.querySelector(".popup__input_type_name");
 const inputAbout = document.querySelector(".popup__input_type_about");
@@ -15,11 +14,12 @@ const popupImageCloseTab = document.querySelector("#popupImageCloseTab");
 const popupImage = document.querySelector(".popup__image");
 const addCreateBtn = document.querySelector("#addCreateBtn");
 const addPopup = document.querySelector("#addPopup");
+const profilePopup = document.querySelector("#profilePopup");
 
 function eventListeners() {
   // Edit profile button
   editButton.addEventListener("click", () => {
-    popup.classList.remove("popup_visible");
+    profilePopup.classList.remove("popup_visible");
     popupOverlay.classList.remove("popup_visible");
     popupName.value = profileName.textContent;
     popupAbout.value = profileAbout.textContent;
@@ -36,14 +36,14 @@ function eventListeners() {
     e.preventDefault();
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
-    popup.classList.add("popup_visible");
+    profilePopup.classList.add("popup_visible");
     popupOverlay.classList.add("popup_visible");
   });
 
   // Close profile popup
   closeButton.addEventListener("click", (e) => {
     e.preventDefault();
-    popup.classList.add("popup_visible");
+    profilePopup.classList.add("popup_visible");
     popupOverlay.classList.add("popup_visible");
   });
 
