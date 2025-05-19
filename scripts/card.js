@@ -31,7 +31,10 @@ const initialCards = [
 ];
 
 class Card {
-  constructor(cardSelector) {
+  constructor(data, cardSelector) {
+    this._title = data.name;
+    this._src = data.link;
+    this._alt = data.name;
     this._cardSelector = cardSelector;
   }
 
@@ -52,14 +55,6 @@ class Card {
     popupOverlay.classList.remove("popup_visible");
   }
 
-  _handleImageInfo() {
-    popupImageImg.src = this._src;
-    popupImageImg.alt = this._alt;
-    popupImageTitle.textContent = this._title;
-    popupImage.classList.remove("popup_visible");
-    popupOverlay.classList.remove("popup_visible");
-  }
-
   _setEventListeners() {
     this._element
       .querySelector(".element__trash-btn")
@@ -72,19 +67,7 @@ class Card {
       .addEventListener("click", (e) => {
         e.target.classList.toggle("element__like-btn_black");
       });
-  }
-}
 
-class DefaultCard extends Card {
-  constructor(data, cardSelector) {
-    super(cardSelector);
-    this._title = data.name;
-    this._src = data.link;
-    this._alt = data.name;
-  }
-
-  _setEventListeners() {
-    super._setEventListeners();
     this._element
       .querySelector(".element__image")
       .addEventListener("click", () => {
@@ -93,7 +76,7 @@ class DefaultCard extends Card {
   }
 
   generateCard() {
-    this._element = super._getTemplate();
+    this._element = this._getTemplate();
     const imageElement = this._element.querySelector(".element__image");
     const titleElement = this._element.querySelector(".element__text");
     imageElement.src = this._src;
@@ -104,22 +87,12 @@ class DefaultCard extends Card {
 
     return this._element;
   }
-
-  _handleImagePopup() {
-    popupImageTitle.textContent = this._title;
-    super._handleImagePopup();
-  }
-
-  _handleImageInfo() {
-    popupImageTitle.textContent = "";
-    super._handleImageInfo();
-  }
 }
 
 const renderElements = () => {
   templateContainer.innerHTML = "";
   initialCards.forEach((item) => {
-    const card = new DefaultCard(item, "#element__template");
+    const card = new Card(item, "#element__template");
     const cardElement = card.generateCard();
     templateContainer.append(cardElement);
   });
@@ -129,4 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
   renderElements();
 });
 
-export default DefaultCard;
+export default Card;

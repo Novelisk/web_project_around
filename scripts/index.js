@@ -1,5 +1,5 @@
 // Generate Cards
-import DefaultCard from "./card.js";
+import Card from "./card.js";
 const cardContainer = document.querySelector(".elements");
 const addCreateBtn = document.querySelector("#addCreateBtn");
 const addPopup = document.querySelector("#addPopup");
@@ -21,7 +21,7 @@ function addNewCard() {
       link: addLink.value,
     };
 
-    const newCard = new DefaultCard(newCardData, "#element__template");
+    const newCard = new Card(newCardData, "#element__template");
     const cardElement = newCard.generateCard();
     addCard(cardElement);
 
