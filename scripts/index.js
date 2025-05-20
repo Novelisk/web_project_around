@@ -1,6 +1,6 @@
 // Generate Cards
 import Card from "./card.js";
-// import FormValidator from "./formValidator.js";
+import FormValidator from "./formValidator.js";
 import event_listeners from "./utils.js";
 
 const cardContainer = document.querySelector(".elements");
