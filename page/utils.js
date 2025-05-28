@@ -1,22 +1,24 @@
-const editButton = document.querySelector(".profile__edit-btn");
-const popupButton = document.querySelector(".popup__submit-btn");
-const popupOverlay = document.querySelector(".popup__overlay");
-const inputName = document.querySelector(".popup__input_type_name");
-const inputAbout = document.querySelector(".popup__input_type_about");
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
-const closeButton = document.querySelector(".popup__close-tab");
-const popupName = document.querySelector("#popupName");
-const popupAbout = document.querySelector("#popupAbout");
-const addButton = document.querySelector(".profile__add-btn");
-const addCloseTab = document.querySelector("#addCloseTab");
-const popupImageCloseTab = document.querySelector("#popupImageCloseTab");
-const popupImage = document.querySelector(".popup__image");
-const addCreateBtn = document.querySelector("#addCreateBtn");
-const addPopup = document.querySelector("#addPopup");
-const profilePopup = document.querySelector("#profilePopup");
+import {
+  editButton,
+  popupSubmitButton,
+  popupOverlay,
+  inputName,
+  inputAbout,
+  profileName,
+  profileAbout,
+  closeButton,
+  popupName,
+  popupAbout,
+  addButton,
+  addCloseTab,
+  popupImageCloseTab,
+  popupImage,
+  addCreateBtn,
+  addPopup,
+  profilePopup,
+} from "../scripts/constants.js";
 
-function eventListeners() {
+const eventListeners = () => {
   // Edit profile button
   editButton.addEventListener("click", () => {
     profilePopup.classList.remove("popup_visible");
@@ -32,7 +34,7 @@ function eventListeners() {
   });
 
   // Submit profile info
-  popupButton.addEventListener("click", (e) => {
+  popupSubmitButton.addEventListener("click", (e) => {
     e.preventDefault();
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
@@ -100,6 +102,6 @@ function eventListeners() {
       }
     });
   });
-}
+};
 
 export default eventListeners;

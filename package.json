@@ -1,0 +1,19 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "Un proyecto de tarjetas interactivas que muestra distintos paisajes y lugares de interés. Se usa HTML, CSS responsivo y JavaScript para ofrecer una experiencia más dinámica.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novelisk/web_project_around.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Novelisk/web_project_around/issues"
+  },
+  "homepage": "https://github.com/Novelisk/web_project_around#readme"
+}
