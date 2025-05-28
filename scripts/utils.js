@@ -16,7 +16,7 @@ import {
   addCreateBtn,
   addPopup,
   profilePopup,
-} from "../scripts/constants.js";
+} from "./constants.js";
 
 const eventListeners = () => {
   // Edit profile button
