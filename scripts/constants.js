@@ -26,7 +26,7 @@ export const profileForm = document.querySelector(
 );
 export const addForm = document.querySelector("#addPopup .popup__container");
 export const handleCardClick = ({ src, alt, title }) => {
-  imagePopup.open(src, alt, title);
+  popupImage.open(src, alt, title);
 };
 export const initialCards = [
   {

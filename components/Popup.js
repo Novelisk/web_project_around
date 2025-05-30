@@ -9,13 +9,13 @@ export default class Popup {
   open() {
     this._popup.classList.remove("popup_visible");
     popupOverlay.classList.remove("popup_visible");
-    document.addEventListener("keydown", this._handleEscClose);
+    document.removeEventListener("keydown", this._handleEscClose);
   }
 
   close() {
     this._popup.classList.add("popup_visible");
     popupOverlay.classList.add("popup_visible");
-    document.removeEventListener("keydown", this._handleEscClose);
+    document.addEventListener("keydown", this._handleEscClose);
   }
 
   _handleEscClose(evt) {

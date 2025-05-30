@@ -16,11 +16,17 @@ import {
   addForm,
   editButton,
   addButton,
-  handleCardClick,
 } from "../scripts/constants.js";
 
 // User Info
 const userInfo = new UserInfo(profileName, profileAbout);
+
+// Popup: Image Viewer
+const imagePopup = new PopupWithImage(popupImage);
+imagePopup.setEventListeners();
+const handleCardClick = ({ src, alt, title }) => {
+  imagePopup.open({ src, alt, title });
+};
 
 // Section, new card, initial cards
 const cardList = new Section(
@@ -69,10 +75,6 @@ const addFormPopup = new PopupWithForm(
 );
 eventListeners();
 addFormPopup.setEventListeners();
-
-// Popup: Image Viewer
-const imagePopup = new PopupWithImage(popupImage);
-imagePopup.setEventListeners();
 
 // Form Validation
 const profileValidator = new FormValidator(profileForm);
