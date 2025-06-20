@@ -56,7 +56,7 @@
       <div class="popup popup_visible" id="profilePopup">
         <button class="popup__close-tab"></button>
         <h3 class="popup__title">Editar perfil</h3>
-        <form class="popup__container" novalidate>
+        <form class="popup__container" id="profileForm" novalidate>
           <label class="popup__field">
             <input
               type="text"
@@ -64,9 +64,9 @@
               class="popup__input popup__input_type_name"
               placeholder="Nombre"
               id="popupName"
-              required
               minlength="2"
               maxlength="40"
+              required
             />
             <div class="popup__underline"></div>
             <span class="popup__error" id="popupName-error"></span>
@@ -78,9 +78,9 @@
               class="popup__input popup__input_type_about"
               placeholder="Acerca de mi"
               id="popupAbout"
-              required
               minlength="2"
               maxlength="200"
+              required
             />
             <div class="popup__underline popup__underline_last"></div>
             <span class="popup__error" id="popupAbout-error"></span>
@@ -117,7 +117,7 @@
             <input
               type="url"
               pattern="https://.+"
-              name="about"
+              name="link"
               class="popup__input popup__input_type_about"
               placeholder="Enlace de la imagen"
               id="addLink"

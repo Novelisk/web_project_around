@@ -28,19 +28,19 @@ const eventListeners = () => {
   });
 
   // Add card button
-  addButton.addEventListener("click", () => {
-    addPopup.classList.remove("popup_visible");
-    popupOverlay.classList.remove("popup_visible");
-  });
+  // addButton.addEventListener("click", () => {
+  //   addPopup.classList.remove("popup_visible");
+  //   popupOverlay.classList.remove("popup_visible");
+  // });
 
   // Submit profile info
-  popupSubmitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    profileName.textContent = inputName.value;
-    profileAbout.textContent = inputAbout.value;
-    profilePopup.classList.add("popup_visible");
-    popupOverlay.classList.add("popup_visible");
-  });
+  // popupSubmitButton.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   profileName.textContent = inputName.value;
+  //   profileAbout.textContent = inputAbout.value;
+  //   profilePopup.classList.add("popup_visible");
+  //   popupOverlay.classList.add("popup_visible");
+  // });
 
   // Close profile popup
   closeButton.addEventListener("click", (e) => {
