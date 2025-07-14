@@ -26,11 +26,14 @@
 
       <main class="content">
         <section class="profile">
-          <img
-            src="./images/profile_avatar.png"
-            alt="Image of and avatar of the explorer Jacques Cousteau."
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="./images/profile_avatar.png"
+              alt="Image of and avatar of the explorer Jacques Cousteau."
+              class="profile__avatar"
+            />
+            <button class="profile-avatar__edit" type="button"></button>
+          </div>
           <div class="profile__info">
             <h2 class="profile__name">Jacques Cousteau</h2>
             <button type="button" class="profile__edit-btn"></button>
@@ -143,6 +146,49 @@
         ></button>
         <img src="#" alt="" class="popup__image-img" />
         <p class="popup__image-title"></p>
+      </div>
+
+      <div class="popup__delete-card popup_visible" id="deleteConfirmPopup">
+        <form class="popup__container" id="deleteConfirmForm">
+          <h3 class="popup__delete-card_title">¿Estás seguro?</h3>
+          <button
+            type="submit"
+            class="popup__delete-card_submit-btn"
+            id="addCreateBtn"
+          >
+            Si
+          </button>
+        </form>
+        <button class="popup__close-tab" id="popupDeleteCardCloseTab"></button>
+      </div>
+
+      <div
+        class="popup__edit-profile-avatar popup_visible"
+        id="editProfileAvatar"
+      >
+        <form class="popup__container" novalidate>
+          <h3 class="popup__edit-avatar-card_title">Cambiar foto de perfil</h3>
+          <label class="popup__field">
+            <input
+              type="url"
+              name="link"
+              class="popup__input popup__input_type_about"
+              placeholder="Enlace de la imagen"
+              id="avatarLink"
+              required
+            />
+            <div class="popup__underline popup__underline_last"></div>
+            <span class="popup__error" id="avatarLink-error"></span>
+          </label>
+          <button
+            type="submit"
+            class="popup__submit-btn popup__submit-btn_invalid"
+            id="editProfileAvatarBtn"
+          >
+            Guardar
+          </button>
+        </form>
+        <button class="popup__close-tab" id="popupDeleteCardCloseTab"></button>
       </div>
 
       <footer class="footer">&copy; 2025. Marco Ramírez</footer>

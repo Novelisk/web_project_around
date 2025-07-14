@@ -9,7 +9,7 @@ Un proyecto de tarjetas interactivas que muestra distintos paisajes y lugares de
 - JavaScript (ES6+)
 - Uso de clases en JS
 - Integración al DOM
-
-### NOTA:
-
-El proyecto carga completamente sin errores a través de un servidor local, ya que si se intenta abir mediante el index.html en una página web, esta no cargará por la implementación de JS modular.
+- Integración al servidor
+- Uso de metodos para hacer llamadas a servidor
+- Uso de metodolodía para modificar información en el servidor
+- Uso adecuado de API's y uso de metodolodía para obtener token personal para el uso en la misma

@@ -1,14 +1,15 @@
 .elements {
-  max-width: 880px;
+  max-width: auto;
   margin: 50px 200px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px 17px;
+  box-sizing: border-box;
 }
 
 .element {
-  max-width: 282px;
+  width: 282px;
   height: 361px;
   margin: 0;
   background-color: #fff;

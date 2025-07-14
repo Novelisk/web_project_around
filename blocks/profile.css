@@ -7,9 +7,38 @@
   justify-content: space-between;
 }
 
-.profile__image {
+.profile__avatar-container {
+  position: relative;
+}
+
+.profile__avatar {
   width: 120px;
   height: 120px;
+  display: block;
+  border-radius: 60px;
+}
+
+.profile-avatar__edit {
+  background-image: url("../images/pincel.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.profile__avatar-container:hover .profile-avatar__edit {
+  color: #000;
+  opacity: 80%;
+  cursor: pointer;
+  border: 0;
 }
 
 .profile__info {

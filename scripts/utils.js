@@ -1,20 +1,14 @@
 import {
   editButton,
-  popupSubmitButton,
   popupOverlay,
-  inputName,
-  inputAbout,
   profileName,
   profileAbout,
   closeButton,
   popupName,
   popupAbout,
-  addButton,
-  addCloseTab,
   popupImageCloseTab,
   popupImage,
   addCreateBtn,
-  addPopup,
   profilePopup,
 } from "./constants.js";
 
@@ -27,33 +21,11 @@ const eventListeners = () => {
     popupAbout.value = profileAbout.textContent;
   });
 
-  // Add card button
-  // addButton.addEventListener("click", () => {
-  //   addPopup.classList.remove("popup_visible");
-  //   popupOverlay.classList.remove("popup_visible");
-  // });
-
-  // Submit profile info
-  // popupSubmitButton.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   profileName.textContent = inputName.value;
-  //   profileAbout.textContent = inputAbout.value;
-  //   profilePopup.classList.add("popup_visible");
-  //   popupOverlay.classList.add("popup_visible");
-  // });
-
   // Close profile popup
   closeButton.addEventListener("click", (e) => {
     e.preventDefault();
     profilePopup.classList.add("popup_visible");
     popupOverlay.classList.add("popup_visible");
-  });
-
-  // Close add card popup
-  addCloseTab.addEventListener("click", (e) => {
-    e.preventDefault();
-    addPopup.classList.toggle("popup_visible");
-    popupOverlay.classList.toggle("popup_visible");
   });
 
   // Close image popup
@@ -65,7 +37,9 @@ const eventListeners = () => {
 
   // Close popups with escape key
   document.addEventListener("keydown", (evt) => {
-    const allPopups = document.querySelectorAll(".popup, .popup__image");
+    const allPopups = document.querySelectorAll(
+      ".popup, .popup__image, .popup__delete-card, .popup__edit-profile-avatar"
+    );
     if (evt.key === "Escape") {
       allPopups.forEach((popup) => {
         if (
@@ -81,7 +55,9 @@ const eventListeners = () => {
 
   // Close popups with click anywhere on window
   document.addEventListener("click", (evt) => {
-    const allPopups = document.querySelectorAll(".popup, .popup__image");
+    const allPopups = document.querySelectorAll(
+      ".popup, .popup__image, .popup__delete-card, .popup__edit-profile-avatar"
+    );
     if (evt.target === popupOverlay) {
       allPopups.forEach((popup) => {
         popup.classList.add("popup_visible");
