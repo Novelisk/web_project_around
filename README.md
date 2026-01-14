@@ -1,4 +1,4 @@
-# 🌍 Tripleten — Around U.S.
+# Tripleten — Around U.S.
 
 Es una aplicación web interactiva que muestra una colección de tarjetas con paisajes y lugares de interés.  
 El proyecto se centra en la **dinámica del frontend, la comunicación con un servidor y una arquitectura limpia en JavaScript**, combinando diseño responsivo con consumo real de APIs.
@@ -52,12 +52,12 @@ El objetivo principal del proyecto es demostrar el manejo de **lógica frontend 
   - Obtener información
   - Modificar datos
   - Persistir cambios en el servidor
-- 🔐 Acceso seguro a la API mediante token personal
-- 📱 Interfaz completamente responsiva
+- Acceso seguro a la API mediante token personal
+- Interfaz completamente responsiva
 
 ---
 
-## 🏗️ Conocimientos Aplicados
+## Conocimientos Aplicados
 
 - Estructura semántica en HTML
 - Maquetación responsiva con CSS
@@ -66,6 +66,5 @@ El objetivo principal del proyecto es demostrar el manejo de **lógica frontend 
 - Integración y manipulación del DOM
 - Comunicación cliente–servidor
 - Uso de métodos HTTP para operaciones CRUD
-- Consumo de APIs y gestión de autenticación
 
 ---
